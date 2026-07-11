@@ -61,6 +61,28 @@ edited here and propagated to the courses by hand; the copies are kept identical
 not a document: it does not compile on its own, because it expects a per-course
 `src/course.tex` that lives in each course, not here.
 
+## Working notes and authoring skills
+
+Two more things live in this root and describe *how* the notes are written, not
+the notes themselves. They apply across the whole collection and are tracked only
+here (each course ignores them):
+
+- `CLAUDE.md`: the working agreement followed while authoring, in English. It
+  fixes the register (a formal teaching voice for a CS reader), the priorities
+  (precision, then clarity, then detail, then coherence), the build and revision
+  workflow, and the layout and commit conventions the courses share. It is
+  written for an AI-assisted workflow but reads as a plain style-and-process
+  guide.
+- `.claude/skills/`: five authoring standards, each a self-contained `SKILL.md`.
+  `notes-writing` is the prose and revision standard (cadence, banned words, the
+  no-em-dash rule, the `%`-comment revision method); `tex-standard` is the LaTeX
+  and typography standard (math delimiters, theorem environments, tables,
+  figures, cross-references); `notation-check` verifies symbols and terms against
+  a course's notation lock; `figure-verify` checks a figure's claims (a net's
+  firings, node and edge counts, an optimum) before it is trusted or drawn;
+  `new-course` scaffolds a conformant course folder. Each states the rule
+  independently of any single course.
+
 ## Build a course
 
 Build any course from its own folder root:
