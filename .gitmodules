@@ -1,0 +1,30 @@
+[submodule "o4ds-notes"]
+	path = o4ds-notes
+	url = https://github.com/sclfnc/o4ds-notes.git
+[submodule "dm-notes"]
+	path = dm-notes
+	url = https://github.com/sclfnc/dm-notes.git
+[submodule "sds-notes"]
+	path = sds-notes
+	url = https://github.com/sclfnc/sds-notes.git
+[submodule "sna-notes"]
+	path = sna-notes
+	url = https://github.com/sclfnc/sna-notes.git
+[submodule "lds-notes"]
+	path = lds-notes
+	url = https://github.com/sclfnc/lds-notes.git
+[submodule "lids-notes"]
+	path = lids-notes
+	url = https://github.com/sclfnc/lids-notes.git
+[submodule "bpm-notes"]
+	path = bpm-notes
+	url = https://github.com/sclfnc/bpm-notes.git
+[submodule "mddmm-notes"]
+	path = mddmm-notes
+	url = https://github.com/sclfnc/mddmm-notes.git
+[submodule "aif-notes"]
+	path = aif-notes
+	url = https://github.com/sclfnc/aif-notes.git
+[submodule "alcna-notes"]
+	path = alcna-notes
+	url = https://github.com/sclfnc/alcna-notes.git

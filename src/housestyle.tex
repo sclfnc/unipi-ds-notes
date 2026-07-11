@@ -1,0 +1,105 @@
+% ============================================================
+% HOUSE STYLE — identical block for every course (do not diverge).
+% Requires: xcolor, titlesec, fancyhdr, geometry, enumitem, caption
+% must be loadable. accent/rulegray/rowgray colors defined here.
+% Also defines the house math environments (theorem/definition/...) at the
+% bottom, so a single \input{housestyle} covers layout + math styling.
+% ============================================================
+
+% --- Page geometry ---
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\linespread{1.15}
+
+% --- Colors ---
+\usepackage[dvipsnames]{xcolor}
+\definecolor{accent}{HTML}{1E3A5F}
+\definecolor{rowgray}{HTML}{F1F5F9}
+\definecolor{rulegray}{HTML}{CBD5E1}
+
+% --- Section styling (identical everywhere) ---
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\bfseries\large\color{accent}}{\thesection}{0.5em}{}
+  [\color{rulegray}\titlerule]
+\titleformat{\subsection}
+  {\normalfont\bfseries\normalsize\color{accent}}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}
+  {\normalfont\bfseries\small\itshape\color{accent}}{\thesubsubsection}{0.5em}{}
+\titlespacing{\section}{0pt}{18pt plus 4pt}{8pt}
+\titlespacing{\subsection}{0pt}{12pt plus 3pt}{4pt}
+\titlespacing{\subsubsection}{0pt}{8pt plus 2pt}{2pt}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+% --- Numbering within section (canonical policy for the whole collection) ---
+\counterwithin{equation}{section}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+% --- Running heads / footer (identical everywhere) ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\nouppercase{\leftmark}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+% --- Lists & captions ---
+\usepackage{enumitem}
+\setlist{leftmargin=1.4em, itemsep=2pt, topsep=3pt, parsep=0pt, partopsep=0pt}
+\usepackage{caption}
+\captionsetup{font={small}, labelfont={bf,color=accent}, labelsep=period, skip=3pt}
+
+% --- ToC spacing ---
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{0.4pt}
+\setlength{\cftbeforesubsecskip}{0.2pt}
+\renewcommand{\cftsecfont}{\small\bfseries}
+\renewcommand{\cftsubsecfont}{\small}
+\renewcommand{\cftsecpagefont}{\small\bfseries}
+\renewcommand{\cftsubsecpagefont}{\small}
+\setlength{\cftaftertoctitleskip}{4pt}
+\renewcommand{\contentsname}{Contents}
+
+% ============================================================
+% HOUSE MATH ENVIRONMENTS (folded in from the former theorems.tex).
+% Run-in accent headings, numbered within section, one shared counter so
+% Definition 3.2 / Theorem 3.3 interleave. Superset of every environment the
+% collection uses; a course simply ignores the ones it never calls. Placed
+% after \definecolor{accent} above, which these headings need.
+% ============================================================
+\newcounter{housethm}[section]
+\renewcommand{\thehousethm}{\thesection.\arabic{housethm}}
+\makeatletter
+\newenvironment{house@thm}[2]% italic body: theorem/lemma/proposition/corollary/claim
+  {\par\addvspace{9pt}\refstepcounter{housethm}%
+   \noindent{\bfseries\color{accent}#1~\thehousethm
+     \if\relax\detokenize{#2}\relax\else\ (#2)\fi.}\hspace{0.4em}\itshape\ignorespaces}
+  {\par\addvspace{9pt}}
+\newenvironment{house@up}[2]% upright body: definition/notation/example/method/axiom/assumption/fact/remark
+  {\par\addvspace{9pt}\refstepcounter{housethm}%
+   \noindent{\bfseries\color{accent}#1~\thehousethm
+     \if\relax\detokenize{#2}\relax\else\ (#2)\fi.}\hspace{0.4em}\ignorespaces}
+  {\par\addvspace{9pt}}
+\newenvironment{theorem}[1][]{\house@thm{Theorem}{#1}}{\endhouse@thm}
+\newenvironment{lemma}[1][]{\house@thm{Lemma}{#1}}{\endhouse@thm}
+\newenvironment{proposition}[1][]{\house@thm{Proposition}{#1}}{\endhouse@thm}
+\newenvironment{corollary}[1][]{\house@thm{Corollary}{#1}}{\endhouse@thm}
+\newenvironment{claim}[1][]{\house@thm{Claim}{#1}}{\endhouse@thm}
+\newenvironment{definition}[1][]{\house@up{Definition}{#1}}{\endhouse@up}
+\newenvironment{notation}[1][]{\house@up{Notation}{#1}}{\endhouse@up}
+\newenvironment{example}[1][]{\house@up{Example}{#1}}{\endhouse@up}
+\newenvironment{method}[1][]{\house@up{Method}{#1}}{\endhouse@up}
+\newenvironment{axiom}[1][]{\house@up{Axiom}{#1}}{\endhouse@up}
+\newenvironment{assumption}[1][]{\house@up{Assumption}{#1}}{\endhouse@up}
+\newenvironment{fact}[1][]{\house@up{Fact}{#1}}{\endhouse@up}
+\newenvironment{remark}[1][]{\house@up{Remark}{#1}}{\endhouse@up}
+\makeatother
+% \proofname exists only when amsthm/amsproof is loaded; define-or-override so
+% this block stays self-contained in courses that load neither.
+\providecommand{\proofname}{Proof}
+\renewcommand{\proofname}{\color{accent}Proof}

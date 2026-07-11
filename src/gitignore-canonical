@@ -1,0 +1,44 @@
+# ── LaTeX build artifacts (regenerated on every build) ──
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.idx
+*.ind
+*.ilg
+*.glo
+*.gls
+*.glg
+*.acn
+*.acr
+*.alg
+texput.*
+
+# ── Assistant config (local, not part of the notes) ──
+.claude/
+
+# ── Markdown: only the public README belongs in the repo ──
+# (ignores CLAUDE.md, NOTATION.md, and any working note like AUDIT.md / STUDY-PLAN.md)
+*.md
+!README.md
+
+# ── OS / editor cruft ──
+.directory
+.vscode/
+.DS_Store
+Thumbs.db
+*~

@@ -1,0 +1,75 @@
+% ============================================================
+% MAIN — identical for every course (do not diverge). All course-specific
+% content lives in course.tex, which this file \input's. To start a new course,
+% copy this main.tex, housestyle.tex, common-preamble.tex unchanged and write a
+% course.tex following the contract below.
+%
+% course.tex MUST define, in the preamble (before \begin{document}):
+%   \coursetitle      — full course name (title block + running use)
+%   \coursesubtitle   — one-line topic list under the title
+%   \courseyear       — e.g. 2024/2025
+%   \coursebody       — a macro expanding to the \input{sec/...} list (and any
+%                       \part / \section / \appendix / \printbibliography)
+% and MAY define any course-specific packages/macros/boxes/tikz/lstset, its own
+% \hypersetup (with pdftitle), bibliography resource, etc. hyperref/cleveref, if
+% used, load inside course.tex — it is the last thing read before \begin{document}.
+% ============================================================
+\documentclass[11pt,a4paper]{article}
+
+% enumitem is loaded by housestyle; pre-pass the options amd.sty (sds) expects so
+% a later re-request never clashes. Harmless no-op for courses that don't use them.
+\PassOptionsToPackage{shortlabels,inline}{enumitem}
+
+% --- House font: serif (Latin Modern) ---
+\usepackage{lmodern}
+
+% --- Shared house style (geometry, colors, sections, ToC, heads, math envs) ---
+\input{src/housestyle}
+
+% --- Shared package set (identical across the collection) ---
+\input{src/common-preamble}
+
+% --- Everything course-specific (metadata, macros, boxes, tikz, lstset, bib) ---
+\input{src/course}
+
+% ============================================================
+\begin{document}
+
+% --- Title (LIDS-style) + disclaimer ---
+\thispagestyle{plain}
+\begin{center}
+  {\color{rulegray}\rule{\linewidth}{0.8pt}}\par
+  \vspace{0.8em}
+  {\sffamily\bfseries\color{accent}\LARGE \coursetitle\par}
+  \vspace{0.4em}
+  {\sffamily\normalsize \coursesubtitle\par}
+  \vspace{0.5em}
+  {\normalsize Francesco Secoli \textbullet\ Academic year \courseyear\par}
+  \vspace{0.6em}
+  {\color{rulegray}\rule{\linewidth}{0.8pt}}\par
+\end{center}
+
+% --- Disclaimer ---
+{\small\noindent
+\textbf{\color{accent}Disclaimer.} Derived from the \emph{\coursetitle} course
+materials (Academic Year \courseyear), MSc in Data Science \& Business
+Informatics, University of Pisa.\par\smallskip
+These notes are open educational content created by a student. They are \textbf{not
+an academic source} and may contain inaccuracies. You may freely share, modify,
+and reuse this material for educational and non-commercial purposes with
+appropriate attribution. The content is my personal interpretation of the
+professor's course materials and should not replace official teaching resources.
+I assume no responsibility for any errors or misinterpretations.\par\smallskip
+These notes were produced with an \textbf{AI-in-the-middle} workflow: a first
+human pass, then \textbf{Claude Code} to support formulation, understanding, and
+rewriting, followed by a final human review.\par\smallskip
+If you find errors, have suggestions, or spot unintentionally included copyrighted
+material (which I will promptly remove on notification), contact me at
+\texttt{sclfnc@proton.me}.\par}
+\newpage
+\tableofcontents
+\newpage
+
+\coursebody
+
+\end{document}

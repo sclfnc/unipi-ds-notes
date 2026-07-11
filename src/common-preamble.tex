@@ -1,0 +1,112 @@
+% ============================================================
+% COMMON PREAMBLE — identical block for every course (do not diverge).
+% Load order in each main.tex:
+%     \documentclass[11pt,a4paper]{article}
+%     \usepackage{lmodern}          % house serif font
+%     \input{housestyle}            % geometry, colors, sections, ToC, heads
+%     \input{theorems}              % house math environments
+%     \input{common-preamble}       % THIS FILE — the shared package set
+% Everything a course actually needs to compile lives here, so the package set
+% is byte-identical across the collection. Packages a given course never calls
+% are still loaded, on purpose, for coherence. What is NOT here (and why):
+%   - lmodern .......... loaded in the main before housestyle (font must come first)
+%   - geometry/xcolor/titlesec/fancyhdr/enumitem/caption/tocloft .. owned by housestyle
+%   - lato (sans) ...... lids-only font choice; global load would restyle every heading
+%   - \addbibresource .. the .bib path is course-specific; kept in each main
+% ============================================================
+
+% --- Encoding & language ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% --- Math ---
+\usepackage{amsmath, amssymb, amsthm, amsfonts, mathtools}
+
+% --- Tables ---
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{multirow}
+\renewcommand{\arraystretch}{1.2}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+% --- Graphics & figures ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{subcaption}
+\usepackage{transparent}
+
+% --- Multi-column ---
+\usepackage{multicol}
+
+% --- TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, arrows, positioning, fit,
+                backgrounds, calc, shapes}
+
+% --- Listings (code / pseudocode) ---
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{rowgray},
+  frame=none,
+  breaklines=true,
+  showstringspaces=false,
+  xleftmargin=4pt, xrightmargin=4pt,
+  aboveskip=4pt, belowskip=4pt
+}
+
+% --- Algorithms ---
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% --- Boxes ---
+\usepackage[most]{tcolorbox}
+\usepackage{mdframed}
+
+% --- House box: one grammar for every framed callout across the collection.
+%     Thin accent left band, faint accent tint, optional run-in title. Courses
+%     map their own box names (notebox/theorybox/normref/...) onto this so a box
+%     looks the same everywhere even when it says different things. ---
+\tcbset{
+  housebox/.style={
+    enhanced, breakable,
+    colback=accent!3, colframe=accent,
+    colbacktitle=accent!3,          % title bar shares the box tint (no full band)
+    boxrule=0pt, leftrule=1.5pt,
+    arc=0pt, outer arc=0pt,
+    left=8pt, right=8pt, top=5pt, bottom=5pt,
+    before skip=8pt, after skip=8pt,
+    fonttitle=\sffamily\bfseries\small,
+    coltitle=accent,                % accent title text on the light tint
+    titlerule=0pt,
+    toptitle=1pt, bottomtitle=1pt,
+  }
+}
+% Back-compat: old lds/lids boxes were mdframed and passed the title via the
+% key `frametitle={...}`. Alias it to tcolorbox's `title` so the section bodies
+% need no edits.
+\tcbset{frametitle/.style={title={#1}}}
+% One generic framed environment in the house grammar, named `calloutbox`. A
+% course maps its own box names onto it (see each course.tex) instead of the
+% common file claiming generic names like notebox/examplebox — those mean
+% different things in different courses (run-in callouts in bpm/o4ds vs framed
+% boxes in lds), so they must NOT be defined here.
+\newtcolorbox{calloutbox}[1][]{housebox, #1}
+
+% --- Symbols & misc ---
+\usepackage{eurosym}
+\usepackage{microtype}
+
+% --- Cross-references (must stay near the end, before hyperref) ---
+% cleveref is loaded by each main AFTER hyperref (load-order requirement).
+
+% --- Bibliography: one backend for the whole collection (biblatex + biber,
+%     numeric style). Courses with no .bib simply print nothing. \cite works. ---
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
