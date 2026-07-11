@@ -29,16 +29,16 @@ and clonable on its own. Status: ✅ done · 🚧 in progress · 📝 to do.
 
 | Folder | Course | Academic year | Status |
 |--------|--------|:-------------:|:------:|
-| [`dm-notes`](dm-notes/) | Data Mining | 2024/25 | ✅ |
-| [`o4ds-notes`](o4ds-notes/) | Optimization for Data Science | 2024/25 | ✅ |
-| [`sds-notes`](sds-notes/) | Statistics for Data Science | 2024/25 | ✅ |
-| [`sna-notes`](sna-notes/) | Social Network Analysis | 2024/25 | ✅ |
-| [`lds-notes`](lds-notes/) | Laboratory of Data Science | 2025/26 | ✅ |
-| [`lids-notes`](lids-notes/) | Legal Issues in Data Science | 2025/26 | ✅ |
-| [`bpm-notes`](bpm-notes/) | Business Process Modeling | 2025/26 | 🚧 |
-| [`mddmm-notes`](mddmm-notes/) | Model-Driven Decision-Making Methods | 2025/26 | 🚧 |
-| [`aif-notes`](aif-notes/) | Artificial Intelligence Fundamentals | 2026/27 | 📝 |
-| [`alcna-notes`](alcna-notes/) | Advanced Laboratory of Complex Network Analysis | 2026/27 | 📝 |
+| [`dm-notes`](https://github.com/sclfnc/dm-notes) | Data Mining | 2024/25 | ✅ |
+| [`o4ds-notes`](https://github.com/sclfnc/o4ds-notes) | Optimization for Data Science | 2024/25 | ✅ |
+| [`sds-notes`](https://github.com/sclfnc/sds-notes) | Statistics for Data Science | 2024/25 | ✅ |
+| [`sna-notes`](https://github.com/sclfnc/sna-notes) | Social Network Analysis | 2024/25 | ✅ |
+| [`lds-notes`](https://github.com/sclfnc/lds-notes) | Laboratory of Data Science | 2025/26 | ✅ |
+| [`lids-notes`](https://github.com/sclfnc/lids-notes) | Legal Issues in Data Science | 2025/26 | ✅ |
+| [`bpm-notes`](https://github.com/sclfnc/bpm-notes) | Business Process Modeling | 2025/26 | 🚧 |
+| [`mddmm-notes`](https://github.com/sclfnc/mddmm-notes) | Model-Driven Decision-Making Methods | 2025/26 | 🚧 |
+| [`aif-notes`](https://github.com/sclfnc/aif-notes) | Artificial Intelligence Fundamentals | 2026/27 | 📝 |
+| [`alcna-notes`](https://github.com/sclfnc/alcna-notes) | Advanced Laboratory of Complex Network Analysis | 2026/27 | 📝 |
 
 ## Shared house style
 
