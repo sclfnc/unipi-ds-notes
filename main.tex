@@ -35,8 +35,15 @@
 % ============================================================
 \begin{document}
 
+% --- Front matter (title, disclaimer, ToC): unnumbered. Roman numbering keeps
+% hyperref's page anchors distinct from the arabic content pages (no duplicate-
+% anchor warning); \pagestyle{empty} hides the numbers. Content resets to
+% arabic 1 just before \coursebody below. ---
+\pagenumbering{roman}
+\pagestyle{empty}
+
 % --- Title (LIDS-style) + disclaimer ---
-\thispagestyle{plain}
+\thispagestyle{empty}
 \begin{center}
   {\color{rulegray}\rule{\linewidth}{0.8pt}}\par
   \vspace{0.8em}
@@ -67,9 +74,18 @@ If you find errors, have suggestions, or spot unintentionally included copyright
 material (which I will promptly remove on notification), contact me at
 \texttt{sclfnc@proton.me}.\par}
 \newpage
-\tableofcontents
-\newpage
+% \tableofcontents forces \thispagestyle{plain} (a numbered footer) on its first
+% page; neutralise \thispagestyle inside a group so the empty style governs every
+% ToC page, whatever its length. \thispagestyle is restored at \endgroup.
+\begingroup
+  \renewcommand{\thispagestyle}[1]{}%
+  \tableofcontents
+\endgroup
+\clearpage
 
+% --- Content starts here: page numbering restarts at 1, running heads back on. ---
+\pagenumbering{arabic}
+\pagestyle{fancy}
 \coursebody
 
 \end{document}
