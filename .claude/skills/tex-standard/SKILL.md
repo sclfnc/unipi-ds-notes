@@ -54,6 +54,25 @@ amsthm is loaded only for `proof`.
   inline ("because $y\ge0$ and $Ax\le b$"). No bare "clearly". Close on an
   explicit clause, not a dangling equation.
 
+- **A stated result is a `theorem`/`lemma`/`proposition`/`corollary`, never a
+  `definitionbox`.** The callout `definitionbox` prints the literal word
+  "Definition"; a theorem wrapped in it reads "Definition (Euler's theorem)",
+  which is wrong. Reserve `definitionbox` (and the house `definition`) for
+  terminology that *introduces* a symbol or term; anything proven or asserted as
+  an if-and-only-if / implication / named result takes the matching theorem-like
+  environment. When one box bundles a definition **and** a result ("S-invariant
+  and its fundamental property"), split it: the definition in `definition`, the
+  result in `proposition`/`theorem`, the proof after.
+- **The proof goes *after* the environment, not inside it.** The theorem-like
+  environments typeset their body in italic (they are for the statement only). A
+  proof placed inside comes out fully italic. Close the environment, then write
+  the proof as a run-in `\textit{Proof.} ... \hfill$\square$` (the course's de
+  facto form: italic "Proof." head, right-flushed hollow `$\square$`). Do not use
+  `\qed` (solid black box) or bold `\textbf{Proof}`.
+- **Protect `[` and `]` inside the optional title.** A title containing brackets,
+  e.g. a refinement `$N[N'/t]$`, closes the optional argument early and errors.
+  Wrap the whole title in braces: `\begin{definition}[{Refinement $N[N'/t]$}]`.
+
 ## 2. Callouts (box-free)
 
 The **box-free run-in headings** `definitionbox`, `examplebox`, `notebox` are
