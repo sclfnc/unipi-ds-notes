@@ -36,7 +36,7 @@ and clonable on its own. Status: ✅ done · 🚧 in progress · 📝 to do.
 | [`lds-notes`](https://github.com/sclfnc/lds-notes) | Laboratory of Data Science | 2025/26 | ✅ |
 | [`lids-notes`](https://github.com/sclfnc/lids-notes) | Legal Issues in Data Science | 2025/26 | ✅ |
 | [`bpm-notes`](https://github.com/sclfnc/bpm-notes) | Business Process Modeling | 2025/26 | 🚧 |
-| [`mddmm-notes`](https://github.com/sclfnc/mddmm-notes) | Model-Driven Decision-Making Methods | 2025/26 | 🚧 |
+| [`mddmm-notes`](https://github.com/sclfnc/mddmm-notes) | Model-Driven Decision-Making Methods | 2025/26 | ✅ |
 | [`aif-notes`](https://github.com/sclfnc/aif-notes) | Artificial Intelligence Fundamentals | 2026/27 | 📝 |
 | [`alcna-notes`](https://github.com/sclfnc/alcna-notes) | Advanced Laboratory of Complex Network Analysis | 2026/27 | 📝 |
 
