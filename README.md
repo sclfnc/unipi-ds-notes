@@ -35,7 +35,7 @@ and clonable on its own. Status: ✅ done · 🚧 in progress · 📝 to do.
 | [`sna-notes`](https://github.com/sclfnc/sna-notes) | Social Network Analysis | 2024/25 | ✅ |
 | [`lds-notes`](https://github.com/sclfnc/lds-notes) | Laboratory of Data Science | 2025/26 | ✅ |
 | [`lids-notes`](https://github.com/sclfnc/lids-notes) | Legal Issues in Data Science | 2025/26 | ✅ |
-| [`bpm-notes`](https://github.com/sclfnc/bpm-notes) | Business Process Modeling | 2025/26 | 🚧 |
+| [`bpm-notes`](https://github.com/sclfnc/bpm-notes) | Business Process Modeling | 2025/26 | ✅ |
 | [`mddmm-notes`](https://github.com/sclfnc/mddmm-notes) | Model-Driven Decision-Making Methods | 2025/26 | ✅ |
 | [`aif-notes`](https://github.com/sclfnc/aif-notes) | Artificial Intelligence Fundamentals | 2026/27 | 📝 |
 | [`alcna-notes`](https://github.com/sclfnc/alcna-notes) | Advanced Laboratory of Complex Network Analysis | 2026/27 | 📝 |
@@ -93,9 +93,10 @@ latexmk main.tex
 ```
 
 `latexmk` runs pdflatex (and Biber, where a course uses it) as many times as
-needed, writes auxiliaries to `build/`, and leaves `main.pdf` in the folder root.
-Each course's `README.md` gives the by-hand fallback and notes any per-course
-quirk. A standard TeX Live installation is enough; alternatively, upload a course
+needed. The compiled PDF is named after the folder (`o4ds-notes.pdf`) and lands
+in the folder root together with every auxiliary, all git-ignored; there is no
+`build/` directory. Each course's `README.md` gives the by-hand fallback and
+notes any per-course quirk. A standard TeX Live installation is enough; alternatively, upload a course
 folder to [Overleaf](https://www.overleaf.com) and set its `main.tex` as the main
 document.
 
