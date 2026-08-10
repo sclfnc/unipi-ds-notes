@@ -87,13 +87,10 @@ Lifted from the strongest sections. Follow them.
 - Introduce a symbol **inline at first use**, bound to its meaning right there
   ("$\bar y_j$ is the **shadow price** of resource $j$"). No front-loaded table.
 - Expand an acronym in parentheses **once**, at first mention.
-- **Bold (or `\emph`) the key term at its FIRST occurrence only**; plain
-  thereafter. Italics stay for semantic emphasis (*best*), not for re-marking a
-  term already introduced.
-- Freeze domain terms; vary only connective and explanatory prose. A term in a
-  course's terminology lock reproduces verbatim, never swapped for a synonym.
-  Disambiguate an overloaded symbol with a qualifier ("the basis $B$ (the basic
-  rows)"), don't rename it.
+- Mark a key term at its first occurrence and never again; which command marks
+  it is in `tex-standard` (§8), the terminology lock and the consistency check in
+  `notation-check`. Freeze the domain terms, and disambiguate an overloaded
+  symbol with a qualifier instead of renaming it.
 
 ## 5. Lists versus prose
 
@@ -113,8 +110,6 @@ Triage every issue you find: **fix / flag / name.**
   claim contradicts theory) → flag it, raise it (§6.2). Don't rewrite math alone.
 - **Scope/structure** (missing prerequisite, a concept the course skipped, a
   section that should split) → name it, don't act.
-
-Never import concepts the course skipped. Deepen what is there.
 
 ### 6.1 Correction comments
 

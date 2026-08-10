@@ -22,7 +22,10 @@
 texput.*
 
 # Assistant config: track the shared skills, ignore local session state.
-# (.claude/ is ignored by the user's global gitignore; skills are force-tracked.)
+# The global gitignore (~/.config/git/ignore) excludes .claude/ as a directory,
+# and git never descends into an excluded directory: re-include the directory
+# first, then exclude its contents, then re-include skills. Order matters.
+!.claude/
 .claude/*
 !.claude/skills/
 

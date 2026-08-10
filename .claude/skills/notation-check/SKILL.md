@@ -48,7 +48,8 @@ records which section owns which concept.
 2. **Statements.** Definitions, theorem/lemma statements, and formulas are exact:
    hypotheses present; signs, ≤/≥, strict vs non-strict, indices, and quantifiers
    correct. Recompute every worked number to its stated result. On doubtful math,
-   consolidated theory wins: flag it (§Flagging), don't rewrite the math alone.
+   consolidated theory wins: flag it (see "What to fix vs flag"), don't rewrite
+   the math alone.
 3. **Reasoning.** Each step follows from the previous; no skipped "clearly";
    stated implications and equivalences actually hold; edge cases covered
    (degeneracy, unboundedness, infeasibility, empty sets, equality vs inequality,
@@ -74,10 +75,9 @@ choice.
 
 ## First-use mark
 
-A key term is marked at its FIRST occurrence only; later mentions are plain. The
-mark is `\emph` (the collection convention, consistent with tex-standard and
-notes-writing) or `\textbf` for a term-defining first use. Flag a term marked
-twice, or introduced plain and marked later.
+A key term is marked at its FIRST occurrence only; later mentions are plain;
+which command marks it is tex-standard's (§8). Flag a term marked twice, or
+introduced plain and marked later.
 
 ## What to fix vs flag
 
@@ -92,9 +92,7 @@ twice, or introduced plain and marked later.
 
 ## How to run it at scale
 
-For a whole-course sweep, fan out sub-agents (~5 at a time), one per section,
-each returning a typed list of issues with `file:line`: unregistered symbol,
-overloaded symbol, unresolved cross-ref, non-reproducing number, first-use-mark
-slip. Verify formal content adversarially: design the check, then try to refute
-the section's claim. Read the workflow journal, not a truncated notification.
-Report the backlog; edit only when asked.
+For a whole-course sweep, one sub-agent per section, each returning a typed list
+of issues with `file:line`: unregistered symbol, overloaded symbol, unresolved
+cross-ref, non-reproducing number, first-use-mark slip. Report the backlog; edit
+only when asked. How to run a fan-out at all is in `CLAUDE.md`.

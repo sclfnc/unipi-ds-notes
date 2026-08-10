@@ -23,8 +23,8 @@ colors, or TikZ styles in a section file.** Layout is uniform across courses:
 `main.tex` in the root, preamble in `src/`, sections in `sec/`. Build from the
 folder root with `latexmk`: `.latexmkrc` sets `$out_dir='.'` so the PDF and all
 auxiliaries land in the root (git-ignored), and `$jobname` names the PDF
-`<folder>.pdf` (e.g. `o4ds-notes.pdf`). Unless a course reserves compiling for
-the user.
+`<folder>.pdf` (e.g. `o4ds-notes.pdf`), unless the course reserves compiling for
+the user. Never leave `main.tex` broken.
 
 Courses have drifted on several axes. Each rule states the **target** convention:
 what to write new content in and migrate toward. Where the target marks existing
@@ -98,14 +98,7 @@ course's `course.tex` defines.
 - Weave a display into its sentence as a grammatical object, not a detached
   formula the prose ignores.
 
-## 4. Cross-references
-
-- **`\cref` only. Never manual `\ref`**, and never hardcode the word: writing
-  `Figure \ref{...}` (worse, bolded) is banned; `\cref{fig:...}` prints the word.
-- **Label scheme `prefix:slug`**, prefix from `sec: ssec: eq: fig: tab: thm:
-  def: alg:`. Consistent, lowercase slugs.
-
-## 5. Figures
+## 4. Figures
 
 - **TikZ always lives in `img/fig_slug.tex`, never inline in a section body.** A
   TikZ figure is rendered as an image and belongs out of the main text flow: put
@@ -121,7 +114,7 @@ course's `course.tex` defines.
   `course.tex` defines it, never as if it were collection-wide.
 - The caption reads as a sentence.
 
-## 6. Tables
+## 5. Tables
 
 Clean and minimal. The look is `booktabs` with horizontal rules only.
 
@@ -157,7 +150,7 @@ Clean and minimal. The look is `booktabs` with horizontal rules only.
 - `\cmidrule(lr)`/`(l)`/`(r)` under a stacked header is **the only allowed
   partial rule**; never a full `\hline` or a `\cline`.
 
-## 7. Algorithms (pseudocode, not code)
+## 6. Algorithms (pseudocode, not code)
 
 The house standard is the `algorithmicx` family, loaded collection-wide
 (`algorithm` + `algpseudocode`). For the layout, e.g. o4ds shows the pattern.
@@ -172,7 +165,7 @@ The house standard is the `algorithmicx` family, loaded collection-wide
   ones lack it: add on touch) and reference with `\cref`.
 - Not `algorithm2e`, not a plain enumerate "step 1 / step 2" list.
 
-## 8. Code (runnable snippets)
+## 7. Code (runnable snippets)
 
 Rare, and **course-specific, not a collection standard**: real code lives almost
 only in a course or two (e.g. SQL, Python, XML, bash). Follow that course's model
@@ -188,7 +181,7 @@ when a course has code.
   every block: it belongs in the one course-level `\lstset`.
 - A bare `lstlisting`/`verbatim` with no `language=` is off-standard.
 
-## 9. Emphasis and quotes
+## 8. Emphasis and quotes
 
 - **`\emph` for semantic emphasis and for a key term's first-use mark.**
 - **`\textbf` for the term-defining first use only**, not for scattering
@@ -199,7 +192,7 @@ when a course has code.
   fix on touch. Use quotes only for a real quotation or a scare-quoted term;
   prefer `\emph` for stress.
 
-## 10. Escaping and special characters
+## 9. Escaping and special characters
 
 Mechanical, and the source of live compile defects. Check these on every edit.
 
@@ -220,7 +213,7 @@ Mechanical, and the source of live compile defects. Check these on every edit.
   abbreviations in formal notes: write "with respect to", "such that", "average"
   in prose, keep `w.r.t.`/`s.t.`/`avg` for tight math context only.
 
-## 11. Cross-references and labels
+## 10. Cross-references and labels
 
 - **`\cref`/`\Cref` only** (start of sentence: `\Cref`). Never bare `\ref`,
   `\autoref`, or a hardcoded "Figure 3". Where a course uses `\ref` or nothing,
@@ -229,8 +222,7 @@ Mechanical, and the source of live compile defects. Check these on every edit.
 
   | Target | Prefix |
   |---|---|
-  | section | `sec:` |
-  | subsection | `sec:` (not `subsec:`/`ssec:`/`sssec:`) |
+  | sectioning | `sec:`, plus `subsec:`/`part:` where a course marks levels apart |
   | equation | `eq:` |
   | figure | `fig:` |
   | table | `tab:` |
@@ -238,15 +230,17 @@ Mechanical, and the source of live compile defects. Check these on every edit.
   | definition | `def:` (not `defn:`) |
   | algorithm | `alg:` |
 
-  Where a course mixes `subsec:`/`ssec:`/`sssec:` or `def:`/`defn:`, converge on
-  the table above. Note that for the house theorem-like environments the prefix
-  is only a label-organizing convention: `def:` and `thm:` both resolve through
-  the shared `housethm` counter, so `\cref` prints "Result N" either way (see
-  §1). Pick the prefix that names the object; it will not change the printed word.
+  Sectioning is the one row set per course, not collection-wide: `lds-notes`
+  labels `\section` `part:`, `\subsection` `sec:`, `\subsubsection` `subsec:`,
+  and that is conforming. What is not: two prefixes for the same level inside one
+  course, or a new prefix where the course already has one (`ssec:`, `sssec:`).
+  Elsewhere converge on the table, `def:` over `defn:` included. Pick the prefix
+  that names the object: on the house theorem-like environments it organizes
+  labels and nothing else, and never changes the printed word (§1).
 
-## 12. Numbers, units, and complexity
+## 11. Numbers, units, and complexity
 
-- **Percent is `\%`** (see §10). No `siunitx` in the collection; write a unit in
+- **Percent is `\%`** (see §9). No `siunitx` in the collection; write a unit in
   prose with a normal space, no special macro.
 - **Big-O: one form per course, `\mathcal{O}(\cdot)`** is the target. Where a
   course writes plain `O(`, migrate it. Defining a `\bigO` macro is a preamble
@@ -254,10 +248,3 @@ Mechanical, and the source of live compile defects. Check these on every edit.
 - Don't invent digits; "about/roughly" when unsure (this is the prose rule, it
   applies to numbers in tables and captions too).
 
-## 13. Build hygiene
-
-After a substantive edit, recompile from the folder root (`latexmk`; `.latexmkrc`
-sets `$out_dir='.'`, so the PDF `<folder>.pdf` and all auxiliaries land in the
-root, git-ignored) unless the course reserves compiling for the user. Check for
-*new* errors and warnings, and inspect the changed pages before reporting done.
-Never leave `main.tex` broken.

@@ -4,8 +4,8 @@ description: >-
   Scaffold a new course folder in the lecture-notes collection, conforming to the
   shared layout. Use when the user asks to start/create/bootstrap a new course,
   set up a new course repo, or fill an empty course folder (e.g. aif-notes).
-  Copies the byte-identical main.tex and the shared src/ preamble from an existing
-  conformant course, writes a course.tex from the contract, and creates the
+  Copies the byte-identical main.tex and the shared src/ preamble from the
+  collection root, writes a course.tex from the contract, and creates the
   empty sec/ scaffolding. Invoke explicitly (/new-course); it does not
   auto-trigger.
 ---
@@ -39,12 +39,14 @@ latexmk writes the PDF and every auxiliary to the folder root (git-ignored via
 the course `.gitignore`); there is no `build/` dir.
 
 `main.tex`, `housestyle.tex`, `common-preamble.tex` are **copied unchanged** from
-an existing conformant course; these three are the byte-identical trio.
-`.latexmkrc` is copied then edited (its `$jobname` embeds the folder name). Only
-`course.tex`, `README.md`, and the `sec/` files are course-specific.
+the collection root, which holds the canonical copies (with `.latexmkrc` and
+`src/gitignore-canonical`); these three are the byte-identical trio. `.latexmkrc`
+is copied then edited: the canonical copy carries no `$jobname`, and the new
+course adds `$jobname = '<folder>'`. Only `course.tex`, `README.md`, and the
+`sec/` files are course-specific.
 
-**Seed from the most recently scaffolded conformant course, not the oldest.** The
-newest scaffold carries the current conventions (lowercase `references.bib`,
+**For anything not canonical, read the most recently scaffolded course, not the
+oldest.** The newest scaffold carries the current conventions (lowercase `references.bib`,
 `sec/_NN_slug.tex` naming with a leading underscore, the standard
 callout/cleveref block). An older course may predate a convention; do not copy it
 for that part. Where a course has drifted from a current convention, migrate it to
@@ -69,14 +71,12 @@ own `\hypersetup` (with `pdftitle`), and a bibliography resource. `hyperref` and
 
 1. **Confirm the folder name and title** with the user (e.g. `aif-notes`,
    "Artificial Intelligence Fundamentals"). Don't guess the official course name.
-2. **Copy the invariant files** from the most recent conformant course:
-   `main.tex`, `src/housestyle.tex`, `src/common-preamble.tex`, unchanged.
-   Verify `main.tex`
-   is byte-identical afterward (its md5 must match the others). Then copy
-   `.latexmkrc` and edit its `$jobname` line to `'<folder>-notes'`. Copy the
-   canonical `.gitignore` (from `src/gitignore-canonical`, or a conformant
-   course): it git-ignores the root-level auxiliaries, `.claude/`, `CLAUDE.md`,
-   and `*.md` except `README.md`.
+2. **Copy the invariant files from the collection root**: `main.tex`,
+   `src/housestyle.tex`, `src/common-preamble.tex`, unchanged. Verify `main.tex`
+   is byte-identical afterward (its md5 must match the root's). Then copy
+   `.latexmkrc` and add `$jobname = '<folder>-notes';`. Copy the canonical
+   `.gitignore` from `src/gitignore-canonical`: it git-ignores the root-level
+   auxiliaries, `.claude/`, `CLAUDE.md`, and `*.md` except `README.md`.
 3. **Write `src/course.tex`**: define the four required macros; `\coursebody`
    starts empty or with a first `\input{sec/_01_...}`. Add `cleveref`/`hyperref`
    here if the course will use `\cref`. Where the real subtitle/topic list or
@@ -97,17 +97,8 @@ own `\hypersetup` (with `pdftitle`), and a bibliography resource. `hyperref` and
 ## Do not
 
 - Do not diverge `main.tex` or the shared `src/` preambles from the collection.
-- Do not create a GitHub repo, `git init`, run submodule wiring, or push. Those
-  are outward, irreversible steps that need an explicit, current go-ahead from
-  the user, not this skill.
-- Do not copy a course's `src/slides`, `src/rec`, or other non-redistributable
-  material into the new folder.
-
-## Note on non-redistributable material under src/
-
-A course may keep large non-redistributable material (recordings, slides) under
-`src/` alongside the shared preambles, ignoring only those subfolders (e.g.
-`src/rec/`, `src/slides/`) rather than `src/` wholesale, so the tracked preambles
-stay tracked (e.g. `bpm-notes`, ~919 MB). When seeding a new course from such a
-folder, copy only the preamble trio: never copy that non-redistributable material
-or its subfolder-specific ignore lines.
+- Do not create a GitHub repo, `git init`, run submodule wiring, or push: those
+  are outward and irreversible, see `CLAUDE.md`.
+- When seeding from a course that keeps recordings or slides under its own `src/`
+  (e.g. `bpm-notes`, ~919 MB), copy the preamble trio alone: never that material,
+  never its subfolder-specific ignore lines.
