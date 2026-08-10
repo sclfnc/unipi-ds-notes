@@ -32,3 +32,6 @@ texput.*
 .DS_Store
 Thumbs.db
 *~
+
+# ── bpm-project: separate private repo, deliberately not part of the collection ──
+/bpm-project/
