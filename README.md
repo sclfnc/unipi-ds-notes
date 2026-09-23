@@ -24,7 +24,7 @@ are at different stages of completion (see the table below).
 
 ## Courses
 
-Ten courses, each a standalone LaTeX project with its own `README.md`, compilable
+Nine courses, each a standalone LaTeX project with its own `README.md`, compilable
 and clonable on its own. Status: ✅ done · 🚧 in progress · 📝 to do.
 
 | Folder | Course | Academic year | Status |
@@ -38,7 +38,6 @@ and clonable on its own. Status: ✅ done · 🚧 in progress · 📝 to do.
 | [`bpm-notes`](https://github.com/sclfnc/bpm-notes) | Business Process Modeling | 2025/26 | ✅ |
 | [`mddmm-notes`](https://github.com/sclfnc/mddmm-notes) | Model-Driven Decision-Making Methods | 2025/26 | ✅ |
 | [`aif-notes`](https://github.com/sclfnc/aif-notes) | Artificial Intelligence Fundamentals | 2026/27 | 📝 |
-| [`alcna-notes`](https://github.com/sclfnc/alcna-notes) | Advanced Laboratory of Complex Network Analysis | 2026/27 | 📝 |
 
 ## Shared house style
 

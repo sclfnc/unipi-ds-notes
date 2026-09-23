@@ -25,6 +25,3 @@
 [submodule "aif-notes"]
 	path = aif-notes
 	url = https://github.com/sclfnc/aif-notes.git
-[submodule "alcna-notes"]
-	path = alcna-notes
-	url = https://github.com/sclfnc/alcna-notes.git
