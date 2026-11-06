@@ -22,6 +22,3 @@
 [submodule "mddmm-notes"]
 	path = mddmm-notes
 	url = https://github.com/sclfnc/mddmm-notes.git
-[submodule "aif-notes"]
-	path = aif-notes
-	url = https://github.com/sclfnc/aif-notes.git

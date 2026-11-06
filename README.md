@@ -24,7 +24,7 @@ are at different stages of completion (see the table below).
 
 ## Courses
 
-Nine courses, each a standalone LaTeX project with its own `README.md`, compilable
+Eight courses, each a standalone LaTeX project with its own `README.md`, compilable
 and clonable on its own. Status: ✅ done · 🚧 in progress · 📝 to do.
 
 | Folder | Course | Academic year | Status |
@@ -37,7 +37,13 @@ and clonable on its own. Status: ✅ done · 🚧 in progress · 📝 to do.
 | [`lids-notes`](https://github.com/sclfnc/lids-notes) | Legal Issues in Data Science | 2025/26 | ✅ |
 | [`bpm-notes`](https://github.com/sclfnc/bpm-notes) | Business Process Modeling | 2025/26 | ✅ |
 | [`mddmm-notes`](https://github.com/sclfnc/mddmm-notes) | Model-Driven Decision-Making Methods | 2025/26 | ✅ |
-| [`aif-notes`](https://github.com/sclfnc/aif-notes) | Artificial Intelligence Fundamentals | 2026/27 | 🚧 |
+
+> **Note.** Up to commit `dca1a2f` this repository also pinned `aif-notes`
+> (Artificial Intelligence Fundamentals, 2026/27) as a submodule. That course
+> left the collection and its repository was emptied, so the revisions those
+> commits pin are no longer available: on a checkout up to `dca1a2f`,
+> `git submodule update` fails for `aif-notes` alone, and the other eight courses
+> are unaffected.
 
 ## Shared house style
 

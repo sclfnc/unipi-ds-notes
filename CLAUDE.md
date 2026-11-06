@@ -8,8 +8,6 @@ The user's university lecture-notes collection (MSc Data Science and Business In
 
 **Then any `CONVENTIONS.md`.** None exists today; a course may add one for build owner, notes voice, terminology lock, content map, LaTeX conventions.
 
-**Course status.** `aif-notes` (a.y. 2026/27, in progress): the optional project is on hold until the lecturer's dedicated project lecture, so for now the exam is the oral alone and the notes cover every topic at exam depth; project material stays out of `sec/`. Ask whether the decision stands after that lecture. Its `MAP.md` tracks sections, drafts, and the audit of the third-party notes in `extra/`.
-
 ## Skills
 
 Three skills, one home per rule. `academic-writing` (user-level, `~/.claude/skills/`) owns the exposition: the reader, the order of a concept's introduction, results and arguments, formulas in sentences, notation, examples, what earns its place. `global-english` (user-level) owns the language: word, sentence, paragraph, emphasis, punctuation, filler, em-dashes. `tex-standard` (`.claude/skills/`) owns the typesetting: theorem-like environments, math delimiters, display labels and `\cref`, TikZ figures in `img/`, booktabs tables, algorithms, listings, escaping, label prefixes. Read the relevant ones before writing or reviewing, in that order.
